@@ -96,3 +96,35 @@ puts "Welcome to Tic Tac Toe!"
 puts display_board(board)
 #turn(board)
 play(board)
+
+   # check_game_over?
+    def check_game_over
+        # check for victory
+        # check for draw
+        check_victory || check_draw
+    end
+
+    # check_victory?
+    def check_victory
+        # IF Board says current player's piece has
+        # a winning_combination?
+        if @board.winning_combination?(@current_player.piece)
+            # then output a victory message
+            puts "Congratulations #{@current_player.name}, you win!"
+            true
+        else
+            false
+        end
+    end
+
+    # check_draw?
+    def check_draw
+        # If Board says we've filled up 
+        if @board.full?
+            # display draw message
+            puts "Bummer, you've drawn..."
+            true
+        else
+            false
+        end
+    end
