@@ -8,3 +8,31 @@ puts "Welcome to Tic Tac Toe!"
 display_board(board)
 
 # Make sure to execute #play below
+ check_game_over
+        # check for victory
+        # check for draw
+        check_victory || check_draw
+    end
+
+  check_victory
+        # IF Board says current player's piece has
+        # a winning_combination?
+        if @board.winning_combination?(@current_player.piece)
+            # then output a victory message
+            puts "Congratulations #{@current_player.name}, you win!"
+            true
+        else
+            false
+        end
+    end
+
+    check_draw
+        # If Board says we've filled up 
+        if @board.full?
+            # display draw message
+            puts "Bummer, you've drawn..."
+            true
+        else
+            false
+        end
+    end
