@@ -3,8 +3,25 @@
 require_relative "../lib/play"
 
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+run_file(file)
+  eval(File.read(file), binding)
+end
 
 puts "Welcome to Tic Tac Toe!"
-display_board(board)
+play(board)
 
 # Make sure to execute #play below
+
+
+play(board)
+  turns = 9
+  counter = 0
+  loop do
+    counter = counter + 1
+    turn(board)
+    if counter >= turns
+      puts "You only get #{turns} turns baby!"
+    end
+  end
+end
+
